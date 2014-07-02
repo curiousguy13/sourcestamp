@@ -45,7 +45,7 @@ PyModuleDef moduledef = {
 
 initsourcestamp(void)
 {
-    return PyModule_Create(&moduledef);
+    return PyModule_Create(&Example_module);
 }
 /*initsourcestamp(void)
 {
