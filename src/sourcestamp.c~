@@ -30,7 +30,7 @@ static PyMethodDef module_methods[] = {
 };
 
 
-PyMODINIT_FUNC
+//PyMODINIT_FUNC
 static struct 
 PyModuleDef moduledef = {
         PyModuleDef_HEAD_INIT,
@@ -43,7 +43,7 @@ PyModuleDef moduledef = {
         NULL
 };
 
-initsourcestamp(void)
+PyMODINIT_FUNC initsourcestamp(void)
 {
     return PyModule_Create(&moduledef);
 }

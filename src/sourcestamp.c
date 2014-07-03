@@ -39,7 +39,6 @@ PyModuleDef moduledef = {
         sizeof(struct dirent),
         module_methods,
         NULL,
-        list_dir,
         NULL
 };
 
