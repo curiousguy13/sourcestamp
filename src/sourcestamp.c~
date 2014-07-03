@@ -30,7 +30,7 @@ static PyMethodDef module_methods[] = {
 };
 
 
-//PyMODINIT_FUNC
+
 static struct 
 PyModuleDef moduledef = {
         PyModuleDef_HEAD_INIT,
@@ -39,7 +39,6 @@ PyModuleDef moduledef = {
         sizeof(struct dirent),
         module_methods,
         NULL,
-        list_dir,
         NULL
 };
 
