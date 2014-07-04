@@ -42,10 +42,10 @@ PyModuleDef moduledef = {
         NULL
 };
 
-PyMODINIT_FUNC initsourcestamp(void)
-{
-    return PyModule_Create(&moduledef);
-}
+//PyMODINIT_FUNC initsourcestamp(void)
+//{
+  //  return PyModule_Create(&moduledef);
+//}
 /*initsourcestamp(void)
 {
     Py_InitModule("sourcestamp", module_methods);
