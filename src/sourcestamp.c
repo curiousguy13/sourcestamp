@@ -29,28 +29,30 @@ static PyMethodDef module_methods[] = {
     {NULL, NULL, 0, NULL}
 };
 
+#if PY_MAJOR_VERSION >= 3
+	static struct 
+	PyModuleDef moduledef = {
+        	PyModuleDef_HEAD_INIT,
+        	"sourcestamp",
+        	NULL,
+        	sizeof(struct dirent),
+        	module_methods,
+        	NULL,
+        	NULL
+	};
 
+	PyMODINIT_FUNC PyInit_sourcestamp(void)
+	{
+    	return PyModule_Create(&moduledef);
+	}
+#else
 
-static struct 
-PyModuleDef moduledef = {
-        PyModuleDef_HEAD_INIT,
-        "sourcestamp",
-        NULL,
-        sizeof(struct dirent),
-        module_methods,
-        NULL,
-        NULL
-};
-
-PyMODINIT_FUNC PyInit_sourcestamp(void)
-{
-    return PyModule_Create(&moduledef);
-}
-/*initsourcestamp(void)
-{
-    Py_InitModule("sourcestamp", module_methods);
-}
-*/
+    PyMODINIT_FUNC
+    initsourcestamp(void)
+    {
+        Py_InitModule("sourcestamp", module_methods);
+    }
+#endif
 static void
 list_dir(const char *dir, time_t *mtime, int *n_files)
 {

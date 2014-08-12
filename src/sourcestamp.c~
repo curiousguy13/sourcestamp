@@ -29,6 +29,11 @@ static PyMethodDef module_methods[] = {
     {NULL, NULL, 0, NULL}
 };
 
+PyMODINIT_FUNC
+initsourcestamp(void)
+{
+    Py_InitModule("sourcestamp", module_methods);
+}
 
 
 static struct 
@@ -42,15 +47,11 @@ PyModuleDef moduledef = {
         NULL
 };
 
-//PyMODINIT_FUNC initsourcestamp(void)
-//{
-  //  return PyModule_Create(&moduledef);
-//}
-/*initsourcestamp(void)
+PyMODINIT_FUNC PyInit_sourcestamp(void)
 {
-    Py_InitModule("sourcestamp", module_methods);
+    return PyModule_Create(&moduledef);
 }
-*/
+
 static void
 list_dir(const char *dir, time_t *mtime, int *n_files)
 {
